@@ -14,4 +14,4 @@ docker compose up
 Then run the Android app.
 
 
-<img width="4519" height="4590" alt="IMG_5006" src="https://github.com/user-attachments/assets/b46f035a-8ba3-4cb5-bde6-4c5e4702da0b" />
+<img width="4519/3" height="4590/3" alt="IMG_5006" src="https://github.com/user-attachments/assets/b46f035a-8ba3-4cb5-bde6-4c5e4702da0b" />
