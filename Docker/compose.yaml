@@ -1,0 +1,49 @@
+services:
+  ldap:
+    image: osixia/openldap:latest
+    hostname: "ldap.asd.msd.localhost"
+    environment:
+      - LDAP_ORGANIZATION=msdAsd
+      - LDAP_DOMAIN=ldap.asd.msd.localhost
+      - LDAP_ADMIN_PASSWORD=shouldntMatter
+      - LDAP_LOG_LEVEL=320
+      - LDAP_TLS=false
+    command: "--loglevel debug"
+    networks:
+      - backend
+
+  ml:
+    image: notes-ml:latest
+    hostname: "ml.asd.msd.localhost"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+#    network_mode: "host"
+    networks:
+      - backend
+      - public
+    ports:
+      - "8001:8001"
+
+  notes-app-server:
+    image: notes-app-ldap:latest
+    depends_on:
+      - ldap
+      - ml
+    hostname: "api.asd.msd.localhost"
+    environment:
+      - SECRET=useSomethingBetter
+      - LDAP_URL=ldap://ldap:389
+      - ML_BASE_URL=http://ml:8001
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+      - public
+
+networks:
+  public:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true

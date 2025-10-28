@@ -1,0 +1,27 @@
+{
+    "realm": "demo",
+    "enabled": true,
+    "verifyEmail": false,
+    "registrationAllowed" : true,
+    "requiredCredentials" : ["password"],
+
+    "users" : [
+        {
+            "username" : "devadmin",
+            "firstName" : "admin",
+            "lastName" : "admin",
+            "email" : "admin@localhost",
+            "enabled": true,
+            "credentials" : [
+                { "type" : "password",
+                  "value" : "c77d15177630b06a1707cc394133e4b79bb19c1ec7b131169d918c46018f206b" }
+            ],
+            "realmRoles": [ "user" ],
+            "clientRoles": {
+                "realm-management": [ "realm-admin" ],
+                "account": [ "manage-account" ]
+            }
+        }
+    ]
+
+}
