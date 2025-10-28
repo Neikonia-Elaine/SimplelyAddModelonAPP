@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+build/
+
+# Local configuration
+local.properties
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+
+# MacOS system files
+.DS_Store
+
+# Log files
+*.log
+
+# Generated files
+captures/
+outputs/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Misc
+.gradle/
+
